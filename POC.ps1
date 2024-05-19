@@ -113,7 +113,11 @@ $Methods |
     }
 }
 
-[IntPtr] $MethodPointer = $MethodFound.MethodHandle.GetFunctionPointer()
+if ($MethodFound) {
+    [IntPtr] $MethodPointer = $MethodFound.MethodHandle.GetFunctionPointer()
+}
+
+
 [IntPtr] $Handle = [APIs]::GetCurrentProcess()
 $dummy = 0
 $ApiReturn = $false
